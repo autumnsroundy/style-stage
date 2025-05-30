@@ -1,0 +1,16 @@
+/* Responsive tweaks */
+@media (min-width: 768px) {
+  main > .container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    article {
+      flex: 3;
+    }
+
+    aside.profile {
+      flex: 1;
+    }
+  }
+}

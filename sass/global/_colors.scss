@@ -1,0 +1,16 @@
+/* Variables for theme */
+$mountain-blue: #1e3a5f;
+$snow-white: #f9f9f9;
+$rock-gray: #ccc;
+$sky-blue: #d0e8f2;
+$text-dark: #222;
+$accent: #77aadd;
+
+a {
+  color: $accent;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
