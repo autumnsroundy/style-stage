@@ -1,27 +1,39 @@
-#files {
-  display: grid;
-  place-content: center;
-  margin: 5vh auto;
-  text-align: center;
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  h3 {
-    height: 0;
-    opacity: 0;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, $sky-blue 0%, $snow-white 100%);
+  line-height: 1.6;
+  color:black;
+}
+
+/* Main layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  background: $snow-white;
+}
+
+article {
+  background: white;
+  border-left: 5px solid $accent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
   }
 
-  .container {
-    display: inline-block;
-    padding: 5vmin;
-    outline: 4px dashed var(--color-secondary);
-    background-color: var(--color-background);
-    text-align: center;
-
-    a:not(:last-child) {
-      margin: 0.5rem;
-
-      &:not(.link-codepen) {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-      }
-    }
+  ul {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+    list-style: square;
   }
 }
