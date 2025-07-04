@@ -11,6 +11,7 @@ body {
   color: $text-dark;
   line-height: 1.6;
 }
+
 /* Main layout */
 main {
   display: flex;
@@ -21,13 +22,13 @@ main {
 }
 
 article {
-  background: white;
-  border-left: 5px solid $accent;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-
+  
   h2 {
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: $mountain-blue;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+
   }
 
   ul {

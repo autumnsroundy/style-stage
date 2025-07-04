@@ -10,6 +10,8 @@ body {
   background: linear-gradient(to bottom, $sky-blue 0%, $snow-white 100%);
   line-height: 1.6;
   color:black;
+  margin: 0;
+  padding: 0;
 }
 
 /* Main layout */
@@ -21,19 +23,46 @@ main {
   background: $snow-white;
 }
 
-article {
-  background: white;
-  border-left: 5px solid $accent;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
 
-  h2 {
-    margin-bottom: 1rem;
-  }
+
+section{
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rem ;
+  display:grid;
+  grid-template-columns: .5fr 1fr 1fr;
+  gap: 1rem;
+  padding:0;
 
   ul {
     margin: 1rem 0;
     padding-left: 1.25rem;
     list-style: square;
+  }
+  h2{
+    grid-column: 1/2;
+    margin:0;
+    padding: 1rem;
+    writing-mode: vertical-rl; // better than rotate!
+    transform: rotate(180deg); // so text reads top to bottom
+    text-align: end;
+    background: $mountain-blue;
+    color: white;
+    grid-row: 1/11;
+
+  }
+  :not(h2){
+    grid-column: 2/4;
+  }
+
+}
+main{
+  .container{
+    margin-bottom: 5rem;
+  }
+  h2 {
+    
+    transform: rotate(-90%);
+    margin:0;
   }
 }

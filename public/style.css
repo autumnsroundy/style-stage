@@ -31,14 +31,11 @@ main {
   background: #f9f9f9;
 }
 
-article {
-  background: white;
-  border-left: 5px solid #77aadd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-}
 article h2 {
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #1e3a5f;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
 }
 article ul {
   margin: 1rem 0;
@@ -106,6 +103,7 @@ nav ul li a {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    padding: 0rem;
   }
   main > .container article {
     flex: 3;
@@ -117,8 +115,8 @@ nav ul li a {
 /* Main Page Container */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 0rem auto;
+  padding: 0rem;
 }
 
 /* Base styles */
@@ -133,6 +131,8 @@ body {
   background: linear-gradient(to bottom, #d0e8f2 0%, #f9f9f9 100%);
   line-height: 1.6;
   color: black;
+  margin: 0;
+  padding: 0;
 }
 
 /* Main layout */
@@ -144,19 +144,41 @@ main {
   background: #f9f9f9;
 }
 
-article {
+section {
   background: white;
-  border-left: 5px solid #77aadd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  margin-bottom: 20rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0;
 }
-article h2 {
-  margin-bottom: 1rem;
-}
-article ul {
+section ul {
   margin: 1rem 0;
   padding-left: 1.25rem;
   list-style: square;
+}
+section h2 {
+  grid-column: 1/2;
+  margin: 0;
+  padding: 1rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: end;
+  background: #1e3a5f;
+  color: white;
+  grid-row: 1/11;
+}
+section :not(h2) {
+  grid-column: 2/4;
+}
+
+main .container {
+  margin-bottom: 5rem;
+}
+main h2 {
+  transform: rotate(-90%);
+  margin: 0;
 }
 
 /* Footer */
