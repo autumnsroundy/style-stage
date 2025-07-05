@@ -144,6 +144,29 @@ main {
   background: #f9f9f9;
 }
 
+#files {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 2rem 0;
+  max-width: 1000px;
+}
+#files a {
+  background-color: #1e3a5f;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 100rem;
+}
+#files h3 {
+  margin: 10px;
+  font-size: 3rem;
+  color: #1e3a5f;
+  padding-top: 0px;
+}
+
 section {
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -152,11 +175,23 @@ section {
   grid-template-columns: 0.5fr 1fr 1fr;
   gap: 1rem;
   padding: 0;
+  border-radius: 1rem;
+}
+section strong {
+  font-size: 1.5rem;
+}
+section h3 {
+  background: #1e3a5f;
+  color: white;
+  text-shadow: 0 0.5px 1px black;
+  padding: 1rem;
 }
 section ul {
   margin: 1rem 0;
   padding-left: 1.25rem;
   list-style: square;
+  text-align: center;
+  list-style-position: inside;
 }
 section h2 {
   grid-column: 1/2;
@@ -166,8 +201,16 @@ section h2 {
   transform: rotate(180deg);
   text-align: end;
   background: #1e3a5f;
+  border-radius: 1rem;
   color: white;
   grid-row: 1/11;
+  font-weight: bold;
+}
+section h2:hover {
+  margin: 0;
+  padding: 1rem;
+  background: #d0e8f2;
+  color: white;
 }
 section :not(h2) {
   grid-column: 2/4;
@@ -179,6 +222,60 @@ main .container {
 main h2 {
   transform: rotate(-90%);
   margin: 0;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+aside h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+aside ul {
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+aside ul li {
+  list-style: none;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #444;
+  display: flex;
+  flex-wrap: wrap;
+}
+aside ul li span:first-child {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  min-width: 80px;
+}
+aside ul li a {
+  color: #1e3a5f;
+  text-decoration: none;
+}
+aside ul li a:hover {
+  text-decoration: underline #1e3a5f;
+}
+aside a:not(.link-allstyles) {
+  margin-top: auto;
+  align-self: flex-start;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+aside a:not(.link-allstyles):hover {
+  background-color: #1e3a5f;
 }
 
 /* Footer */
