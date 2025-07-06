@@ -19,6 +19,142 @@ main {
   gap: 2rem;
   padding: 2rem 0;
   background: $snow-white;
+  padding-top: 5rem !important;
+}
+
+/* Top row with side-by-side columns using Grid */
+.top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: stretch; /* Makes all grid items the same height */
+}
+
+.about-column,
+.second-column {
+  min-width: 0; /* Prevents grid items from overflowing */
+  /* Remove flexbox to let original section styling work */
+}
+
+/* Add more padding to both top row containers */
+.about-column .container,
+.second-column .container {
+  padding-right: 2rem !important; /* Adds more space on the right side */
+}
+
+/* Extra padding for Setting the Stage container */
+.about-column .container {
+  padding-right: 3rem !important; /* Additional padding for Setting the Stage */
+}
+
+/* Fix list alignment in Modern CSS section */
+.second-column ul {
+  text-align: left !important; /* Align list to the left */
+  list-style-position: outside !important; /* Move bullets outside */
+  margin-top: 0.5rem !important; /* Reduce space above the list */
+}
+
+/* Bottom sections container with separate grid layout */
+.bottom-sections {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Override the grid-row for guidelines h2 to make it full height */
+.guidelines-section section h2 {
+  grid-row: 1 / -1 !important;
+}
+
+/* Custom styling for guidelines section to make blue strip thinner and vertical */
+.guidelines-section section {
+  grid-template-columns: 0.25fr 1fr 1fr !important; /* Reduce first column width by half */
+  grid-template-rows: none !important; /* Remove fixed rows, use implicit rows */
+  margin-bottom: 2rem !important; /* Override the large margin-bottom */
+  align-items: stretch !important; /* Make grid items stretch to full height */
+  display: block !important;
+  grid-template-columns: unset !important;
+  grid-template-rows: unset !important;
+  margin-bottom: unset !important;
+  box-shadow: none !important; /* Remove box shadow */
+}
+
+.guidelines-section section h2 {
+  grid-column: 1/2 !important;
+  grid-row: 1 / -1 !important; /* Span full height */
+  padding: 0.5rem !important; /* Reduce padding to make strip thinner */
+  font-size: 0.8rem !important; /* Slightly smaller font to fit thinner strip */
+  margin: 0 !important; /* Remove any margin */
+  align-self: stretch !important; /* Stretch to fill the grid area */
+  height: 100% !important; /* Force full height */
+  min-height: 100% !important; /* Ensure minimum height */
+}
+
+/* Additional high-specificity override for the grid-row issue */
+section.guidelines-section section h2,
+.guidelines-section section h2,
+.bottom-sections .guidelines-section section h2 {
+  grid-row: 1 / -1 !important;
+  grid-column: 1/2 !important;
+}
+
+/* Maximum specificity override for guidelines h2 */
+body main .container .bottom-sections .guidelines-container .guidelines-section section h2 {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100px !important;
+  height: 100% !important;
+  background: #1e3a5f !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 1rem !important;
+  writing-mode: vertical-rl !important;
+  transform: rotate(180deg) !important;
+  text-align: end !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 1rem !important;
+  z-index: 2 !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  visibility: visible !important;
+  opacity: 1 !important; }
+
+body main .container .bottom-sections .guidelines-container .guidelines-section section h2:hover {
+  background: #d0e8f2 !important; }
+
+/* Horizontal sections - now within bottom-sections container */
+.bottom-sections .contribute-section,
+.bottom-sections .steps-section {
+  width: 100%;
+  display: block !important; /* Override any flex/grid display */
+}
+
+/* Guidelines section uses grid layout */
+.bottom-sections .guidelines-section {
+  width: 100%;
+}
+
+/* Override conflicting responsive styles */
+@media (min-width: 768px) {
+  main > .container {
+    display: block !important; /* Override flex display */
+    flex-direction: unset !important;
+    gap: unset !important;
+  }
+  
+  main > .container article {
+    flex: unset !important;
+    width: 100% !important;
+  }
+  
+  main > .container aside.profile {
+    flex: unset !important;
+  }
 }
 
 article {
@@ -37,3 +173,729 @@ article {
     list-style: square;
   }
 }
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .top-row {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+  }
+  
+  .about-column,
+  .second-column {
+    /* No special flex properties needed for grid */
+  }
+}
+
+/* Guidelines container with simple 1x1 grid */
+.guidelines-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
+
+/* Blue strip positioned absolutely for guidelines */
+.guidelines-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: #1e3a5f;
+  border-radius: 1rem;
+  z-index: 3;
+  cursor: pointer; }
+
+/* Guidelines section content */
+.guidelines-container .guidelines-section {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: 130px;
+  padding: 3rem 3rem 3rem 130px;
+  text-align: left; }
+
+/* Position the h2 within the blue strip */
+.guidelines-container h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: #1e3a5f;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  z-index: 2; }
+
+/* Guidelines strip hover effect - also change h2 background */
+.guidelines-strip:hover {
+  background: #d0e8f2 !important; }
+
+.guidelines-strip:hover ~ h2 {
+  background: #d0e8f2 !important; }
+
+/* Maximum specificity override for Guidelines h2 visibility */
+body main .container .bottom-sections .guidelines-container h2 {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100px !important;
+  height: 100% !important;
+  background: #1e3a5f !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 1rem !important;
+  writing-mode: vertical-rl !important;
+  transform: rotate(180deg) !important;
+  text-align: end !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 1rem !important;
+  z-index: 2 !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  visibility: visible !important;
+  opacity: 1 !important; }
+
+/* Maximum specificity override for Guidelines strip hover effect */
+body main .container .bottom-sections .guidelines-container .guidelines-strip:hover {
+  background: #d0e8f2 !important; }
+
+body main .container .bottom-sections .guidelines-container .guidelines-strip:hover ~ h2 {
+  background: #d0e8f2 !important; }
+
+/* Contribute container with simple 1x1 grid */
+.contribute-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Blue strip positioned absolutely for contribute */
+.contribute-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px; /* Same width as guidelines strip */
+  height: 100%;
+  background: $mountain-blue;
+  border-radius: 1rem; /* Round all corners */
+  z-index: 1;
+}
+
+/* Contribute section content */
+.contribute-container .contribute-section {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: 130px; /* Increased from 110px */
+  padding: 3rem 3rem 3rem 130px; /* Increased left padding */
+  text-align: left; /* Ensure left alignment */
+}
+
+/* Force left alignment for all text in contribute */
+.contribute-container .contribute-section section {
+  text-align: left !important;
+}
+
+.contribute-container .contribute-section section p,
+.contribute-container .contribute-section section h3,
+.contribute-container .contribute-section section ol,
+.contribute-container .contribute-section section li {
+  text-align: left !important;
+}
+
+/* Override list styling for contribute */
+.contribute-container .contribute-section section ul,
+.contribute-container .contribute-section section ol {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+.contribute-container .contribute-section section li {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+/* Position the h2 within the blue strip for contribute */
+.contribute-container .contribute-section section h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px; /* Match the strip width */
+  height: 100%;
+  background: $mountain-blue;
+  color: white;
+  margin: 0;
+  padding: 1rem; /* Match the original padding */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem; /* Round all corners */
+  z-index: 2;
+}
+
+/* Remove blue background from h3 in contribute and make text color match regular font */
+.contribute-container .contribute-section section h3 {
+  background: none !important; /* Remove the blue background */
+  color: $text-dark !important; /* Match the regular text color */
+  text-shadow: none !important; /* Remove text shadow */
+  padding: 0 !important; /* Remove padding */
+  margin: 1rem 0 0.5rem 0 !important; /* Add proper margins */
+  text-align: left !important; /* Ensure left alignment */
+}
+
+/* Remove blue background from h3 in guidelines and make text color match regular font */
+.guidelines-container .guidelines-section section h3 {
+  background: none !important; /* Remove the blue background */
+  color: $text-dark !important; /* Match the regular text color */
+  text-shadow: none !important; /* Remove text shadow */
+  padding: 0 !important; /* Remove padding */
+  margin: 1rem 0 0.5rem 0 !important; /* Add proper margins */
+  text-align: left !important; /* Ensure left alignment */
+}
+
+/* Remove box shadow from contribute section */
+.contribute-container .contribute-section section {
+  box-shadow: none !important;
+}
+
+/* Maximum specificity overrides to force left alignment */
+body main .container .bottom-sections .guidelines-container .guidelines-section section,
+body main .container .bottom-sections .contribute-container .contribute-section section {
+  text-align: left !important;
+}
+
+body main .container .bottom-sections .guidelines-container .guidelines-section section *,
+body main .container .bottom-sections .contribute-container .contribute-section section * {
+  text-align: left !important;
+}
+
+/* Override the _files.scss section ul rule specifically */
+body main .container .bottom-sections .guidelines-container .guidelines-section section ul,
+body main .container .bottom-sections .contribute-container .contribute-section section ul,
+body main .container .bottom-sections .guidelines-container .guidelines-section section ol,
+body main .container .bottom-sections .contribute-container .contribute-section section ol {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+/* Override the _files.scss section rule that affects all sections */
+body main .container .bottom-sections .guidelines-container .guidelines-section,
+body main .container .bottom-sections .contribute-container .contribute-section {
+  display: block !important; /* Override the grid display from _files.scss */
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+  gap: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Ensure the inner section doesn't inherit the _files.scss grid styles */
+body main .container .bottom-sections .guidelines-container .guidelines-section section,
+body main .container .bottom-sections .contribute-container .contribute-section section {
+  display: block !important;
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
+  gap: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+/* Override the section ul rule that's centering text */
+section ul {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+/* Even more specific overrides */
+.guidelines-container section ul,
+.contribute-container section ul {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+.guidelines-container .guidelines-section section ol,
+.contribute-container .contribute-section section ol {
+  padding-left: 1.5rem !important;
+}
+
+/* About Resources container with simple 1x1 grid */
+.about-resources-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Blue strip positioned absolutely for about resources */
+.about-resources-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: #1e3a5f;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+/* About Resources section content */
+.about-resources-container .about-resources-section {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: 150px; /* Increased from 130px */
+  padding: 3rem 3rem 3rem 150px; /* Increased left padding */
+  text-align: left;
+}
+
+/* Position the h2 within the blue strip for about resources */
+.about-resources-container .about-resources-section section h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: $mountain-blue;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  z-index: 2;
+}
+
+/* Ensure the resources-grid maintains its flexbox display */
+.about-resources-container .about-resources-section section .resources-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+  min-height: 200px !important;
+}
+
+/* First row: 2 boxes (50% each) */
+.first-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+.first-row .resource-column {
+  flex: 1 !important;
+  width: 50% !important;
+}
+
+/* Second row: multiple boxes sharing space equally */
+.second-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  flex-wrap: wrap !important;
+}
+
+.second-row .resource-column {
+  flex: 1 !important;
+  min-width: 200px !important;
+}
+
+/* Maximum specificity override for the grid */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .resources-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+  min-height: 200px !important;
+}
+
+/* Maximum specificity override for first row */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column {
+  flex: 1 !important;
+  width: 50% !important;
+}
+
+/* Maximum specificity override for second row */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  flex-wrap: wrap !important;
+}
+
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column {
+  flex: 1 !important;
+  min-width: 200px !important;
+}
+
+/* Remove the left-column styles since we're not using it anymore */
+/* Left column container for stacked boxes */
+.left-column {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  flex: 2 !important;
+}
+
+/* Ensure resource columns maintain their styling */
+.about-resources-container .about-resources-section section .resource-column {
+  background: #f8f9fa !important;
+  padding: 1.5rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e9ecef !important;
+  min-height: 150px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Maximum specificity override for resource columns */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .resource-column {
+  background: #f8f9fa !important;
+  padding: 1.5rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e9ecef !important;
+  min-height: 150px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Make the Resources & Links span full width */
+.resources-full-width {
+  width: 100% !important;
+}
+
+/* Maximum specificity override for full width */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .resources-full-width {
+  width: 100% !important;
+}
+
+.resource-column h4 {
+  color: $mountain-blue;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid $mountain-blue;
+  padding-bottom: 0.5rem;
+}
+
+.resource-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.resource-column ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.resource-column ul li:last-child {
+  border-bottom: none;
+}
+
+.resource-column a {
+  color: $mountain-blue;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: $mountain-blue;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.resource-column a:hover {
+  background: $sky-blue;
+}
+
+/* Style for the nested resources section */
+.resources-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.resources-section h4 {
+  color: $mountain-blue;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid $mountain-blue;
+  padding-bottom: 0.5rem;
+}
+
+.resources-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.resources-section ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.resources-section ul li:last-child {
+  border-bottom: none;
+}
+
+.resources-section a {
+  color: $mountain-blue;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: $mountain-blue;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.resources-section a:hover {
+  background: $sky-blue;
+}
+
+/* Force left alignment for all text in about resources */
+.about-resources-container .about-resources-section section {
+  text-align: left !important;
+}
+
+.about-resources-container .about-resources-section section * {
+  text-align: left !important;
+}
+
+/* Ensure about-resources section is NOT affected by the display: block overrides */
+.about-resources-container .about-resources-section {
+  display: block !important; /* Keep as block for the container */
+}
+
+.about-resources-container .about-resources-section section {
+  display: block !important; /* Keep as block for the inner section */
+}
+
+/* Maximum specificity overrides to force left alignment */
+body main .container .bottom-sections .guidelines-container .guidelines-section section,
+body main .container .bottom-sections .contribute-container .contribute-section section {
+  text-align: left !important;
+}
+
+body main .container .bottom-sections .guidelines-container .guidelines-section section *,
+body main .container .bottom-sections .contribute-container .contribute-section section * {
+  text-align: left !important;
+}
+
+/* Maximum specificity override for the grid */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .resources-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+  margin-top: 1rem !important;
+  width: 100% !important;
+  min-height: 200px !important;
+}
+
+/* Maximum specificity override for first row */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column {
+  flex: 1 !important;
+  width: 50% !important;
+}
+
+/* Maximum specificity override for second row */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  flex-wrap: wrap !important;
+}
+
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column {
+  flex: 1 !important;
+  min-width: 200px !important;
+}
+
+/* Center only the View Stylesheet button in Currently Staged Style */
+.first-row .resource-column:first-child a[href="/styles/css/main-stage.css"] {
+  text-align: center !important;
+}
+
+/* Maximum specificity override for centering only the button */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child a[href="/styles/css/main-stage.css"] {
+  text-align: center !important;
+}
+
+/* Add more padding between blue strip and content */
+
+/* Add margin to separate Twitter link from label */
+.first-row .resource-column:first-child .profile-twitter a {
+  margin-left: 7rem !important;
+}
+
+/* Add margin to separate website link from label */
+.first-row .resource-column:first-child .profile-website a {
+  margin-left: 4rem !important;
+}
+
+/* Maximum specificity override for Twitter link margin */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child .profile-twitter a {
+  margin-left: 7rem !important;
+}
+
+/* Maximum specificity override for website link margin */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child .profile-website a {
+  margin-left: 4rem !important;
+}
+
+/* Add margin to separate featured style link from "by" text */
+.first-row .resource-column:nth-child(2) .features li:first-child a {
+  margin-right: 5rem !important;
+}
+
+/* Add margin to separate second featured style link from "by" text */
+.first-row .resource-column:nth-child(2) .features li:nth-child(2) a {
+  margin-right: 6rem !important;
+}
+
+/* Add margin to separate third featured style link from "by" text */
+.first-row .resource-column:nth-child(2) .features li:nth-child(3) a {
+  margin-right: 11rem !important;
+}
+
+/* Maximum specificity override for featured style link margin */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:first-child a {
+  margin-right: 5rem !important;
+}
+
+/* Maximum specificity override for second featured style link margin */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:nth-child(2) a {
+  margin-right: 6rem !important;
+}
+
+/* Maximum specificity override for third featured style link margin */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:nth-child(3) a {
+  margin-right: 11rem !important;
+}
+
+/* Make View All Styles button mountain blue */
+.first-row .resource-column:nth-child(2) .link-allstyles {
+  background: $mountain-blue !important;
+  color: white !important;
+}
+
+/* Make Download CSS button mountain blue */
+.second-row .resource-column:first-child .link-downloadcss,
+.second-row .resource-column:first-child a[href="/source-files/style.css"] {
+  background: $mountain-blue !important;
+  color: white !important;
+}
+
+/* Maximum specificity override for View All Styles button */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .link-allstyles {
+  background: $mountain-blue !important;
+  color: white !important;
+}
+
+/* Maximum specificity override for Download CSS button */
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column:first-child .link-downloadcss,
+body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column:first-child a[href="/source-files/style.css"] {
+  background: $mountain-blue !important;
+  color: white !important;
+}
+
+/* Reduce space between last container and footer */
+main .container {
+  margin-bottom: 2rem !important;
+}
+
+/* Maximum specificity override for main container margin */
+body main {
+  padding-top: 5rem !important;
+}
+
+/* Maximum specificity override for About Resources container shadow */
+body main .container .bottom-sections .about-resources-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
+
+/* Maximum specificity override for Contribute container shadow */
+body main .container .bottom-sections .contribute-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
+
+/* Maximum specificity override for Guidelines container shadow */
+body main .container .bottom-sections .guidelines-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
+
+/* Override the main h2 rule that's affecting our guidelines h2 */
+.guidelines-container h2 {
+  transform: rotate(180deg) !important; }
+
+/* Maximum specificity override for Guidelines h2 visibility */
+body main .container .bottom-sections .guidelines-container h2 {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100px !important;
+  height: 100% !important;
+  background: #1e3a5f !important;
+  color: white !important;
+  margin: 0 !important;
+  padding: 1rem !important;
+  writing-mode: vertical-rl !important;
+  transform: rotate(180deg) !important;
+  text-align: end !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 1rem !important;
+  z-index: 2 !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  visibility: visible !important;
+  opacity: 1 !important; }
