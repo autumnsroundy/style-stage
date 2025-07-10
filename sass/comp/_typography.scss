@@ -1,0 +1,22 @@
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+article h2 {
+  font-size: 1rem;
+  color: $mountain-blue;
+  transform: rotate(-90deg);
+}
+
+ul {
+  list-style: square;
+}

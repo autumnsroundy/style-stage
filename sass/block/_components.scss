@@ -1,0 +1,41 @@
+.guidelines-strip,
+.contribute-strip,
+.about-resources-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: #1e3a5f;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+.resource-column,
+.resources-section .resource-column {
+  background: #f8f9fa !important;
+  padding: 1.5rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #e9ecef !important;
+  min-height: 150px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.resource-column a,
+.resources-section a {
+  color: $mountain-blue;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: $mountain-blue;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.resource-column a:hover,
+.resources-section a:hover {
+  background: $sky-blue;
+}

@@ -1,0 +1,13 @@
+// _media-queries.scss
+@media (max-width: 768px) {
+  .top-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main > .container {
+    display: block !important;
+  }
+}

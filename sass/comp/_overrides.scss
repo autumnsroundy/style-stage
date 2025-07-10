@@ -1,0 +1,46 @@
+section ul,
+.guidelines-container section ul,
+.contribute-container section ul {
+  text-align: left !important;
+  list-style-position: outside !important;
+}
+
+body main .container .bottom-sections .guidelines-container h2,
+body main .container .bottom-sections .about-resources-container h2 {
+  transform: rotate(180deg) !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100px !important;
+  height: 100% !important;
+  writing-mode: vertical-rl !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: end !important;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  border-radius: 1rem !important;
+  background: #1e3a5f !important;
+  color: white !important;
+  z-index: 2 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.guidelines-strip:hover,
+.contribute-strip:hover {
+  background: #d0e8f2 !important;
+}
+
+.guidelines-strip:hover ~ h2,
+.contribute-strip:hover ~ h2 {
+  background: #d0e8f2 !important;
+}
+
+/* Make View All Styles button mountain blue */
+.first-row .resource-column:nth-child(2) .link-allstyles {
+  background: $mountain-blue !important;
+  color: white !important;
+}

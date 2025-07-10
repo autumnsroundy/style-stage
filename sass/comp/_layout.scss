@@ -1,16 +1,4 @@
-/* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, $sky-blue 0%, $snow-white 100%);
-  color: $text-dark;
-  line-height: 1.6;
-}
 
 /* Main layout */
 main {
@@ -139,23 +127,6 @@ body main .container .bottom-sections .guidelines-container .guidelines-section 
   width: 100%;
 }
 
-/* Override conflicting responsive styles */
-@media (min-width: 768px) {
-  main > .container {
-    display: block !important; /* Override flex display */
-    flex-direction: unset !important;
-    gap: unset !important;
-  }
-  
-  main > .container article {
-    flex: unset !important;
-    width: 100% !important;
-  }
-  
-  main > .container aside.profile {
-    flex: unset !important;
-  }
-}
 
 article {
   
@@ -174,18 +145,7 @@ article {
   }
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-  .top-row {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 1rem;
-  }
-  
-  .about-column,
-  .second-column {
-    /* No special flex properties needed for grid */
-  }
-}
+
 
 /* Guidelines container with simple 1x1 grid */
 .guidelines-container {
@@ -601,15 +561,6 @@ body main .container .bottom-sections .about-resources-container .about-resource
   flex-direction: column !important;
 }
 
-/* Make the Resources & Links span full width */
-.resources-full-width {
-  width: 100% !important;
-}
-
-/* Maximum specificity override for full width */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .resources-full-width {
-  width: 100% !important;
-}
 
 .resource-column h4 {
   color: $mountain-blue;
@@ -696,10 +647,7 @@ body main .container .bottom-sections .about-resources-container .about-resource
   background: $sky-blue;
 }
 
-/* Force left alignment for all text in about resources */
-.about-resources-container .about-resources-section section {
-  text-align: left !important;
-}
+
 
 .about-resources-container .about-resources-section section * {
   text-align: left !important;
@@ -725,177 +673,8 @@ body main .container .bottom-sections .contribute-container .contribute-section 
   text-align: left !important;
 }
 
-/* Maximum specificity override for the grid */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .resources-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 3rem !important;
-  margin-top: 1rem !important;
-  width: 100% !important;
-  min-height: 200px !important;
-}
-
-/* Maximum specificity override for first row */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 2rem !important;
-  width: 100% !important;
-}
-
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column {
-  flex: 1 !important;
-  width: 50% !important;
-}
-
-/* Maximum specificity override for second row */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 1.5rem !important;
-  width: 100% !important;
-  flex-wrap: wrap !important;
-}
-
-body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column {
-  flex: 1 !important;
-  min-width: 200px !important;
-}
-
-/* Center only the View Stylesheet button in Currently Staged Style */
-.first-row .resource-column:first-child a[href="/styles/css/main-stage.css"] {
-  text-align: center !important;
-}
-
-/* Maximum specificity override for centering only the button */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child a[href="/styles/css/main-stage.css"] {
-  text-align: center !important;
-}
-
-/* Add more padding between blue strip and content */
-
-/* Add margin to separate Twitter link from label */
-.first-row .resource-column:first-child .profile-twitter a {
-  margin-left: 7rem !important;
-}
-
-/* Add margin to separate website link from label */
-.first-row .resource-column:first-child .profile-website a {
-  margin-left: 4rem !important;
-}
-
-/* Maximum specificity override for Twitter link margin */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child .profile-twitter a {
-  margin-left: 7rem !important;
-}
-
-/* Maximum specificity override for website link margin */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:first-child .profile-website a {
-  margin-left: 4rem !important;
-}
-
-/* Add margin to separate featured style link from "by" text */
-.first-row .resource-column:nth-child(2) .features li:first-child a {
-  margin-right: 5rem !important;
-}
-
-/* Add margin to separate second featured style link from "by" text */
-.first-row .resource-column:nth-child(2) .features li:nth-child(2) a {
-  margin-right: 6rem !important;
-}
-
-/* Add margin to separate third featured style link from "by" text */
-.first-row .resource-column:nth-child(2) .features li:nth-child(3) a {
-  margin-right: 11rem !important;
-}
-
-/* Maximum specificity override for featured style link margin */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:first-child a {
-  margin-right: 5rem !important;
-}
-
-/* Maximum specificity override for second featured style link margin */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:nth-child(2) a {
-  margin-right: 6rem !important;
-}
-
-/* Maximum specificity override for third featured style link margin */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .features li:nth-child(3) a {
-  margin-right: 11rem !important;
-}
-
-/* Make View All Styles button mountain blue */
-.first-row .resource-column:nth-child(2) .link-allstyles {
-  background: $mountain-blue !important;
-  color: white !important;
-}
-
-/* Make Download CSS button mountain blue */
-.second-row .resource-column:first-child .link-downloadcss,
-.second-row .resource-column:first-child a[href="/source-files/style.css"] {
-  background: $mountain-blue !important;
-  color: white !important;
-}
-
-/* Maximum specificity override for View All Styles button */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .first-row .resource-column:nth-child(2) .link-allstyles {
-  background: $mountain-blue !important;
-  color: white !important;
-}
-
-/* Maximum specificity override for Download CSS button */
-body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column:first-child .link-downloadcss,
-body main .container .bottom-sections .about-resources-container .about-resources-section section .second-row .resource-column:first-child a[href="/source-files/style.css"] {
-  background: $mountain-blue !important;
-  color: white !important;
-}
 
 /* Reduce space between last container and footer */
 main .container {
   margin-bottom: 2rem !important;
 }
-
-/* Maximum specificity override for main container margin */
-body main {
-  padding-top: 5rem !important;
-}
-
-/* Maximum specificity override for About Resources container shadow */
-body main .container .bottom-sections .about-resources-container {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
-
-/* Maximum specificity override for Contribute container shadow */
-body main .container .bottom-sections .contribute-container {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
-
-/* Maximum specificity override for Guidelines container shadow */
-body main .container .bottom-sections .guidelines-container {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; }
-
-/* Override the main h2 rule that's affecting our guidelines h2 */
-.guidelines-container h2 {
-  transform: rotate(180deg) !important; }
-
-/* Maximum specificity override for Guidelines h2 visibility */
-body main .container .bottom-sections .guidelines-container h2 {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 100px !important;
-  height: 100% !important;
-  background: #1e3a5f !important;
-  color: white !important;
-  margin: 0 !important;
-  padding: 1rem !important;
-  writing-mode: vertical-rl !important;
-  transform: rotate(180deg) !important;
-  text-align: end !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 1rem !important;
-  z-index: 2 !important;
-  font-size: 1rem !important;
-  font-weight: bold !important;
-  visibility: visible !important;
-  opacity: 1 !important; }

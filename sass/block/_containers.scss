@@ -1,7 +1,22 @@
-/* Main Page Container */
+// _containers.scss
+.about-column .container,
+.second-column .container {
+  padding-right: 2rem !important;
+}
 
-.container {
-  max-width: 1200px;
-  margin: 0rem auto;
-  padding: 0rem;
+.about-column .container {
+  padding-right: 3rem !important;
+}
+
+.guidelines-container,
+.contribute-container,
+.about-resources-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
