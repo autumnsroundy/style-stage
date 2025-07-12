@@ -1,13 +1,4 @@
 // _containers.scss
-.about-column .container,
-.second-column .container {
-  padding-right: 2rem !important;
-}
-
-.about-column .container {
-  padding-right: 3rem !important;
-}
-
 .guidelines-container,
 .contribute-container,
 .about-resources-container {
@@ -15,8 +6,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  margin-bottom: 2rem;
   background: white;
-  border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
+

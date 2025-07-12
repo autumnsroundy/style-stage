@@ -1,4 +1,4 @@
-/* Footer */
+// footer //
 .page-footer {
   background: $mountain-blue;
   color: white;
@@ -10,12 +10,11 @@
   }
 
   ul {
-    list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    padding: 0;
+    list-style: none;
   }
 
   p {

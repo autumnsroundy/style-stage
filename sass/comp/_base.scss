@@ -10,3 +10,18 @@ body {
   color: $text-dark;
   line-height: 1.6;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: white; // or $snow-white if using SCSS variables
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem 0 2rem;
+  background: $snow-white;
+}

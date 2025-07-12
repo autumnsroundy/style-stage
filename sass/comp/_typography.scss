@@ -1,15 +1,9 @@
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
+main h1, main h2, main h3, main h4, main h5, main h6 {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 article h2 {
   font-size: 1rem;
@@ -19,4 +13,8 @@ article h2 {
 
 ul {
   list-style: square;
+  text-align: left;
+  list-style-position: outside;
+  margin: 1rem 0;
+  padding-left: 1.25rem;
 }
