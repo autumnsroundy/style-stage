@@ -484,21 +484,6 @@ a:hover {
   box-shadow: 0.3em 0.3em var(--color-secondary);
 }
 
-/* Responsive tweaks */
-@media (min-width: 768px) {
-  main > .container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    padding: 0rem;
-  }
-  main > .container article {
-    flex: 3;
-  }
-  main > .container aside.profile {
-    flex: 1;
-  }
-}
 .guidelines-container,
 .contribute-container,
 .about-resources-container {
